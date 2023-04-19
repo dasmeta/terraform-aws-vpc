@@ -1,30 +1,28 @@
 # terraform-aws-vpc
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## create vpc setup for using in modules/projects
+## Allows to create vpc setup for using in modules/projects
 
 ### example vpc for eks
-*```hcl
-*module "vpc" {
- source  = "dasmeta/eks/aws"
- version = "0.1.0"
+```hcl
+module "vpc" {
+  source  = "dasmeta/eks/aws"
+  version = "1.0.0"
 
- name = "dev"
- availability_zones = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
- private_subnets    = ["10.16.1.0/24", "10.16.2.0/24", "10.16.3.0/24"]
- public_subnets     = ["10.16.4.0/24", "10.16.5.0/24", "10.16.6.0/24"]
- cidr               = "10.16.0.0/16"
- public_subnet_tags = {
-   "kubernetes.io/cluster/dev" = "shared"
-   "kubernetes.io/role/elb"    = "1"
- }
- private_subnet_tags = {
-   "kubernetes.io/cluster/dev"       = "shared"
-   "kubernetes.io/role/internal-elb" = "1"
- }
-*}
-*
+  name = "dev"
+  availability_zones = ["eu-central-1a", "eu-central-1b", "eu-central-1c"]
+  private_subnets    = ["10.16.1.0/24", "10.16.2.0/24", "10.16.3.0/24"]
+  public_subnets     = ["10.16.4.0/24", "10.16.5.0/24", "10.16.6.0/24"]
+  cidr               = "10.16.0.0/16"
+  public_subnet_tags = {
+    "kubernetes.io/cluster/dev" = "shared"
+    "kubernetes.io/role/elb"    = "1"
+  }
+  private_subnet_tags = {
+    "kubernetes.io/cluster/dev"       = "shared"
+    "kubernetes.io/role/internal-elb" = "1"
+  }
+}
 ```
-**/
 
 ## Requirements
 
