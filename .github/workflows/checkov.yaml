@@ -1,10 +1,10 @@
-name: Pre Commit
+name: Checkov
 on:
   pull_request:
   push:
     branches: [main, master]
 jobs:
-  pre-commit-check:
+  checkov-check:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -12,9 +12,7 @@ jobs:
           - ./
     permissions: write-all
     steps:
-      - name: Pre-Commit
-        uses: dasmeta/reusable-actions-workflows/pre-commit@4.2.0
+      - uses: dasmeta/reusable-actions-workflows/checkov@4.2.0
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          path: ${{ matrix.path }}
+          directory: ${{ matrix.path }}
         continue-on-error: true
