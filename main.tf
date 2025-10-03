@@ -48,4 +48,6 @@ module "vpc" {
 
   public_subnet_tags  = var.public_subnet_tags
   private_subnet_tags = var.private_subnet_tags
+  reuse_nat_ips       = var.reuse_nat_ips
+  external_nat_ip_ids = var.external_nat_ip_ids
 }
