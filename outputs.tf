@@ -32,3 +32,22 @@ output "availability_zones" {
   value       = local.availability_zones
   description = "Availability zone names used for vpc creation"
 }
+
+# -----------------------------------------------------------------------------
+# Route table outputs
+# -----------------------------------------------------------------------------
+
+output "default_route_table_id" {
+  value       = module.vpc.default_route_table_id
+  description = "The ID of the default route table for the VPC"
+}
+
+output "public_route_table_ids" {
+  value       = module.vpc.public_route_table_ids
+  description = "List of IDs of public route tables"
+}
+
+output "private_route_table_ids" {
+  value       = module.vpc.private_route_table_ids
+  description = "List of IDs of private route tables"
+}
