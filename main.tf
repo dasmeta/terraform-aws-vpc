@@ -51,3 +51,15 @@ module "vpc" {
   reuse_nat_ips       = var.reuse_nat_ips
   external_nat_ip_ids = var.external_nat_ip_ids
 }
+
+resource "aws_vpc_endpoint" "s3" {
+  count = var.enable_s3_gateway_endpoint ? 1 : 0
+
+  vpc_id            = module.vpc.vpc_id
+  service_name      = "com.amazonaws.${data.aws_region.current.region}.s3"
+  vpc_endpoint_type = "Gateway"
+  route_table_ids = distinct(concat(
+    module.vpc.public_route_table_ids,
+    module.vpc.private_route_table_ids,
+  ))
+}
