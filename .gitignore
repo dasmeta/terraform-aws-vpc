@@ -1,6 +1,9 @@
 # Local .terraform directories
 **/.terraform/*
 
+# Local isolated development worktrees
+.worktrees/
+
 # .tfstate files
 *.tfstate
 *.tfstate.*
