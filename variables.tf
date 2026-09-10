@@ -51,6 +51,12 @@ variable "enable_dns_support" {
   description = "Whether or not to enable dns support."
 }
 
+variable "enable_s3_gateway_endpoint" {
+  type        = bool
+  default     = true
+  description = "Whether to create an Amazon S3 Gateway VPC endpoint and associate it with public and private route tables."
+}
+
 variable "public_subnet_tags" {
   type    = map(any)
   default = {}

@@ -51,3 +51,8 @@ output "private_route_table_ids" {
   value       = module.vpc.private_route_table_ids
   description = "List of IDs of private route tables"
 }
+
+output "s3_gateway_endpoint_id" {
+  value       = try(aws_vpc_endpoint.s3[0].id, null)
+  description = "The ID of the Amazon S3 Gateway VPC endpoint, or null when disabled."
+}
