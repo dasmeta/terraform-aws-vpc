@@ -27,6 +27,12 @@ variable "public_subnets" {
   description = "Public subnets of VPC."
 }
 
+variable "map_public_ip_on_launch" {
+  type        = bool
+  default     = false
+  description = "Whether to automatically assign a public IP address to instances launched in public subnets."
+}
+
 variable "enable_nat_gateway" {
   type        = bool
   default     = true
