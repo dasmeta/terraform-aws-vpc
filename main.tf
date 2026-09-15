@@ -46,6 +46,8 @@ module "vpc" {
   enable_dns_hostnames = var.enable_dns_hostnames
   enable_dns_support   = var.enable_dns_support
 
+  map_public_ip_on_launch = var.map_public_ip_on_launch
+
   public_subnet_tags  = var.public_subnet_tags
   private_subnet_tags = var.private_subnet_tags
   reuse_nat_ips       = var.reuse_nat_ips
